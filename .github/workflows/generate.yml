@@ -19,8 +19,4 @@ jobs:
         name: Require module
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            console.log(process);
-            const script = require(`${ process.env.GITHUB_WORKSPACE }/js/script.js`);
-            const array = await script({github, context});
-            return array;
+          script: require(`${ process.env.GITHUB_WORKSPACE }/js/script.js`)({github, context})
